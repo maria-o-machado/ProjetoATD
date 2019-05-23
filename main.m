@@ -346,18 +346,18 @@ vetor_media_passos_wd_x=[vetor_media_passos_wd_x; media_passos_wd_acc_x];
 vetor_media_passos_wd_y=[vetor_media_passos_wd_y; media_passos_wd_acc_y];
 vetor_media_passos_wd_z=[vetor_media_passos_wd_z; media_passos_wd_acc_z];
 
-num = [1; 2; 3; 4; 5; 6; 7; 8; 9; 10];
+vetor_media_passos_w_x=[vetor_media_passos_w_x; media_passos_w_x/10];
+vetor_media_passos_w_y=[vetor_media_passos_w_y; media_passos_w_y/10];
+vetor_media_passos_w_z=[vetor_media_passos_w_z; media_passos_w_z/10];
 
-T = table(num,vetor_media_passos_w_x, vetor_media_passos_w_y, vetor_media_passos_w_z, vetor_media_passos_wu_x, vetor_media_passos_wu_y, vetor_media_passos_wu_z, vetor_media_passos_wd_x, vetor_media_passos_wd_y, vetor_media_passos_wd_z,'VariableNames',{'Numero','MediaPassosWemX', 'MediaPassosWemY', 'MediaPassosWemZ', 'MediaPassosWUemX', 'MediaPassosWUemY', 'MediaPassosWUemZ', 'MediaPassosWDemX', 'MediaPassosWDemY', 'MediaPassosWDemZ'})
+vetor_media_passos_wu_x=[vetor_media_passos_wu_x; media_passos_wu_x/10];
+vetor_media_passos_wu_y=[vetor_media_passos_wu_y; media_passos_wu_y/10];
+vetor_media_passos_wu_z=[vetor_media_passos_wu_z; media_passos_wu_z/10];
 
-fprintf('Media de passos de Walking em ACC_X: %.2f por min. \n', media_passos_w_x/10);
-fprintf('Media de passos de Walking em ACC_Y: %.2f por min. \n', media_passos_w_y/10);
-fprintf('Media de passos de Walking em ACC_Z: %.2f por min. \n', media_passos_w_z/10);
+vetor_media_passos_wd_x=[vetor_media_passos_wd_x; media_passos_wd_x/10];
+vetor_media_passos_wd_y=[vetor_media_passos_wd_y; media_passos_wd_y/10];
+vetor_media_passos_wd_z=[vetor_media_passos_wd_z; media_passos_wd_z/10];
 
-fprintf('Media de passos de Walking-Up em ACC_X: %.2f por min. \n', media_passos_wu_x/10);
-fprintf('Media de passos de Walking-Up em ACC_Y: %.2f por min. \n', media_passos_wu_y/10);
-fprintf('Media de passos de Walking-Up em ACC_Z: %.2f por min. \n', media_passos_wu_z/10);
+num = [1; 2; 3; 4; 5; 6; 7; 8; 9; 10; "MediaTotal(/min)"];
 
-fprintf('Media de passos de Walking-Down em ACC_X: %.2f por min. \n', media_passos_wd_x/10);
-fprintf('Media de passos de Walking-Down em ACC_Y: %.2f por min. \n', media_passos_wd_y/10);
-fprintf('Media de passos de Walking-Down em ACC_Z: %.2f por min. \n', media_passos_wd_z/10);
+T = table(num,vetor_media_passos_w_x, vetor_media_passos_w_y, vetor_media_passos_w_z, vetor_media_passos_wu_x, vetor_media_passos_wu_y, vetor_media_passos_wu_z, vetor_media_passos_wd_x, vetor_media_passos_wd_y, vetor_media_passos_wd_z,'VariableNames',{'Numero','Media_Passos_W_em_X', 'Media_Passos_W_em_Y', 'Media_Passos_W_em_Z', 'Media_Passos_WU_em_X', 'Media_Passos_WU_em_Y', 'Media_Passos_WU_em_Z', 'Media_Passos_WD_em_X', 'Media_Passos_WD_em_Y', 'Media_Passos_WD_em_Z'})
