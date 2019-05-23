@@ -34,7 +34,10 @@ function [media_passos_w, media_passos_wu, media_passos_wd]=analiseGrafica(nome,
     maior=max(A);
         
     %Analise
-    figure(fig)
+    if (strcmp(nome,'acc-exp01-user01.txt ACC-X')==1 || strcmp(nome,'acc-exp01-user01.txt ACC-Y')==1 || strcmp(nome,'acc-exp01-user01.txt ACC-Z')==1)
+       figure(fig)
+    end
+    
     hold on
     
     for i=1:length(matriz_atividade)
@@ -52,26 +55,28 @@ function [media_passos_w, media_passos_wu, media_passos_wd]=analiseGrafica(nome,
         discrete_fourier_transform = dFT(atividade_acc);
         f=linspace(-25,25,numel(atividade_acc));
 
-        if (tipo == "W") || (tipo == "W-U") || (tipo == "W-D")
-            subplot(maior,3,atividades_dinamicas);
-            f=linspace(-25,25,numel(atividade_acc));
-            plot(f,abs(discrete_fourier_transform));
-            x=sprintf('Atividade Tipo: %s', tipo);
-            title(x,'FontSize',7)
-            atividades_dinamicas=atividades_dinamicas+3;
-        
-        elseif (tipo == "SIT") || (tipo == "STAND") || (tipo == "LAY")
-            subplot(maior,3,atividades_estaticas);
-            plot(f,abs(discrete_fourier_transform));
-            x=sprintf('Atividade Tipo: %s', tipo);
-            title(x,'FontSize',7)
-            atividades_estaticas=atividades_estaticas+3;
-        else
-            subplot(maior,3,atividades_transicao);
-            plot(f,abs(discrete_fourier_transform));
-            x=sprintf('Atividade Tipo: %s', tipo);
-            title(x,'FontSize',7)
-            atividades_transicao=atividades_transicao+3;
+        if (strcmp(nome,'acc-exp01-user01.txt ACC-X')==1 || strcmp(nome,'acc-exp01-user01.txt ACC-Y')==1 || strcmp(nome,'acc-exp01-user01.txt ACC-Z')==1)
+            if (tipo == "W") || (tipo == "W-U") || (tipo == "W-D")
+                subplot(maior,3,atividades_dinamicas);
+                f=linspace(-25,25,numel(atividade_acc));
+                plot(f,abs(discrete_fourier_transform));
+                x=sprintf('[%s] Atividade Tipo: %s', nome, tipo);
+                title(x,'FontSize',7)
+                atividades_dinamicas=atividades_dinamicas+3;
+
+            elseif (tipo == "SIT") || (tipo == "STAND") || (tipo == "LAY")
+                subplot(maior,3,atividades_estaticas);
+                plot(f,abs(discrete_fourier_transform));
+                x=sprintf('[%s] Atividade Tipo: %s', nome, tipo);
+                title(x,'FontSize',7)
+                atividades_estaticas=atividades_estaticas+3;
+            else
+                subplot(maior,3,atividades_transicao);
+                plot(f,abs(discrete_fourier_transform));
+                x=sprintf('[%s] Atividade Tipo: %s', nome, tipo);
+                title(x,'FontSize',7)
+                atividades_transicao=atividades_transicao+3;
+            end
         end
        
 % ============================== Ponto4.1 ==============================
