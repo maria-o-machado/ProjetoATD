@@ -20,9 +20,12 @@ function devolve =label(num)
             maior=i;
         end
     end
+    m1=experiment_numberID(menor:maior);
+    m2=user_numberID(menor:maior);
     m3=activity_number_ID(menor:maior);
     m4=Label_startPoint(menor:maior);
     m5=Label_endPoint(menor:maior);
 
     devolve=[m3 m4 m5];
 end
+

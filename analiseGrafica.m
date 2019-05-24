@@ -1,4 +1,4 @@
-function [media_passos_w, media_passos_wu, media_passos_wd]=analiseGrafica(nome, data, fig, matriz_atividade)
+function [media_passos_w, media_passos_wu, media_passos_wd, desvio_padrao_w, desvio_padrao_wu, desvio_padrao_wd]=analiseGrafica(nome, data, fig, matriz_atividade)
     numero_passos_w=[];
     numero_passos_wu=[];
     numero_passos_wd=[];
