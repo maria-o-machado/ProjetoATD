@@ -2,6 +2,16 @@ function [media_passos_w, media_passos_wu, media_passos_wd, desvio_padrao_w, des
     numero_passos_w=[];
     numero_passos_wu=[];
     numero_passos_wd=[];
+    
+    vetor_picosMax_dinamica = [];
+    vetor_picosMax_estatica = [];
+    vetor_picosMax_transicao = [];
+    vetor_primeiroPico_dinamica = [];
+    vetor_primeiroPico_estatica = [];
+    vetor_primeiroPico_transicao = [];
+    vetor_ultimoPico_dinamica = [];
+    vetor_ultimoPico_estatica = [];
+    vetor_ultimoPico_transicao = [];
         
     t=0:7/(numel(data)-1):7;
     
@@ -58,21 +68,26 @@ function [media_passos_w, media_passos_wu, media_passos_wd, desvio_padrao_w, des
         if (strcmp(nome,'acc-exp01-user01.txt ACC-X')==1 || strcmp(nome,'acc-exp01-user01.txt ACC-Y')==1 || strcmp(nome,'acc-exp01-user01.txt ACC-Z')==1)
             if (tipo == "W") || (tipo == "W-U") || (tipo == "W-D")
                 subplot(maior,3,atividades_dinamicas);
-                f=linspace(-25,25,numel(atividade_acc));
-                plot(f,abs(discrete_fourier_transform));
+                ixp=find(f>=0);
+                f=f(ixp);
+                plot(f,abs(discrete_fourier_transform(ixp)));
                 x=sprintf('[%s] Atividade Tipo: %s', nome, tipo);
                 title(x,'FontSize',7)
                 atividades_dinamicas=atividades_dinamicas+3;
 
             elseif (tipo == "SIT") || (tipo == "STAND") || (tipo == "LAY")
                 subplot(maior,3,atividades_estaticas);
-                plot(f,abs(discrete_fourier_transform));
+                ixp=find(f>=0);
+                f=f(ixp);
+                plot(f,abs(discrete_fourier_transform(ixp)));
                 x=sprintf('[%s] Atividade Tipo: %s', nome, tipo);
                 title(x,'FontSize',7)
                 atividades_estaticas=atividades_estaticas+3;
             else
                 subplot(maior,3,atividades_transicao);
-                plot(f,abs(discrete_fourier_transform));
+                ixp=find(f>=0);
+                f=f(ixp);
+                plot(f,abs(discrete_fourier_transform(ixp)));
                 x=sprintf('[%s] Atividade Tipo: %s', nome, tipo);
                 title(x,'FontSize',7)
                 atividades_transicao=atividades_transicao+3;
@@ -97,11 +112,43 @@ function [media_passos_w, media_passos_wu, media_passos_wd, desvio_padrao_w, des
             numero_medio_passos=ponto4_2(discrete_fourier_transform, atividade_acc);
             numero_passos_wd=[numero_passos_wd numero_medio_passos]; 
         end
-% ======================================================================
+
+% ============================== Ponto4.3 ==============================
+%         [picoMaximo, primeiroPico, ultimoPico] = ponto4_3(atividade);
+%         %Atividade Dinamica
+%         if (tipo == "W") || (tipo == "W-U") || (tipo == "W-D")
+%             vetor_picosMax_dinamica = [vetor_picosMax_dinamica picoMaximo];
+%             vetor_primeiroPico_dinamica = [vetor_primeiroPico_dinamica primeiroPico]
+%             vetor_ultimoPico_dinamica = [vetor_ultimoPico_dinamica ultimoPico]
+%         %Atividade Estatica
+%         elseif (tipo == "SIT") || (tipo == "STAND") || (tipo == "LAY")
+%             vetor_picosMax_transicao = [vetor_picosMax_transicao picoMaximo];
+%             vetor_primeiroPico_transicao = [vetor_primeiroPico_transicao primeiroPico]
+%             vetor_ultimoPico_transicao = [vetor_ultimoPico_transicao ultimoPico]
+%         %Atividade Transicao      
+%         else
+%             vetor_picosMax_estatica = [vetor_picosMax_estatica picoMaximo]; 
+%             vetor_primeiroPico_estatica = [vetor_primeiroPico_estatica primeiroPico]
+%             vetor_ultimoPico_estatica = [vetor_ultimoPico_estatica ultimoPico]
+%         end
+%              
+%     % ======================================================================
+
          anterior=fim;
          
     end
     hold off
+    
+    %Plot do 4.3
+%     if (strcmp(nome,'acc-exp01-user01.txt ACC-X')==1 || strcmp(nome,'acc-exp01-user01.txt ACC-Y')==1 || strcmp(nome,'acc-exp01-user01.txt ACC-Z')==1)
+%         figure(14)
+%         plot3(X,Y,Z)
+%         figure(15)
+%         plot3(X,Y,Z)
+%         figure(16)
+%         plot3(X,Y,Z)
+%     end
+        
     %Media do numero de passos da atividade W
     sum_numero_passos_w=0;
 

@@ -3,7 +3,7 @@ function discrete_fourier_transform=ponto4_1(atividade, fig)
 %Tentar perceber valores de frequencia maxima (pico) e o que acontece ao riffle effect com o aumento das frequencias 
 %Basicamente tentar perceber as mudanças dos valores ao aplicar janelas diferetnes
 
-    
+
     discrete_fourier_transform=dFT(detrend(atividade).*hamming(numel(atividade)));
     f=linspace(-25,25,numel(atividade));
 
