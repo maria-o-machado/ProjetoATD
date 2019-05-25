@@ -12,4 +12,4 @@ function [picoMaximo, primeiroPico, ultimoPico] = ponto4_3(atividade)
     %Primeiro pico
     primeiroPico = f(locs(1));
     %Ultimo pico
-    ultimoPico = f(locs(lenght(vetor_picos)));
+    ultimoPico = f(locs(numel(vetor_picos)));

@@ -63,6 +63,10 @@ function [media_passos_w, media_passos_wu, media_passos_wd, desvio_padrao_w, des
         
 % =============================== Ponto4 ===============================
         discrete_fourier_transform = dFT(atividade_acc);
+%         if (strcmp(nome,'acc-exp01-user01.txt ACC-X'))==1
+%             x=sprintf('Atividade %s: %.2d (DFT). \n', tipo, discrete_fourier_transform);
+%             disp(x)
+%         end
         f=linspace(-25,25,numel(atividade_acc));
 
         if (strcmp(nome,'acc-exp01-user01.txt ACC-X')==1 || strcmp(nome,'acc-exp01-user01.txt ACC-Y')==1 || strcmp(nome,'acc-exp01-user01.txt ACC-Z')==1)
@@ -92,6 +96,8 @@ function [media_passos_w, media_passos_wu, media_passos_wd, desvio_padrao_w, des
                 title(x,'FontSize',7)
                 atividades_transicao=atividades_transicao+3;
             end
+%             x=sprintf('Atividade %s : %.1d (DFT)\n', tipo, discrete_fourier_transform);
+%             disp(x)
         end
        
 % ============================== Ponto4.1 ==============================
@@ -114,40 +120,30 @@ function [media_passos_w, media_passos_wu, media_passos_wd, desvio_padrao_w, des
         end
 
 % ============================== Ponto4.3 ==============================
-%         [picoMaximo, primeiroPico, ultimoPico] = ponto4_3(atividade);
-%         %Atividade Dinamica
-%         if (tipo == "W") || (tipo == "W-U") || (tipo == "W-D")
-%             vetor_picosMax_dinamica = [vetor_picosMax_dinamica picoMaximo];
-%             vetor_primeiroPico_dinamica = [vetor_primeiroPico_dinamica primeiroPico]
-%             vetor_ultimoPico_dinamica = [vetor_ultimoPico_dinamica ultimoPico]
-%         %Atividade Estatica
-%         elseif (tipo == "SIT") || (tipo == "STAND") || (tipo == "LAY")
-%             vetor_picosMax_transicao = [vetor_picosMax_transicao picoMaximo];
-%             vetor_primeiroPico_transicao = [vetor_primeiroPico_transicao primeiroPico]
-%             vetor_ultimoPico_transicao = [vetor_ultimoPico_transicao ultimoPico]
-%         %Atividade Transicao      
-%         else
-%             vetor_picosMax_estatica = [vetor_picosMax_estatica picoMaximo]; 
-%             vetor_primeiroPico_estatica = [vetor_primeiroPico_estatica primeiroPico]
-%             vetor_ultimoPico_estatica = [vetor_ultimoPico_estatica ultimoPico]
-%         end
-%              
+        [picoMaximo, primeiroPico, ultimoPico] = ponto4_3(discrete_fourier_transform);
+        %Atividade Dinamica
+        if (tipo == "W") || (tipo == "W-U") || (tipo == "W-D")
+            vetor_picosMax_dinamica = [vetor_picosMax_dinamica picoMaximo];
+            vetor_primeiroPico_dinamica = [vetor_primeiroPico_dinamica primeiroPico];
+            vetor_ultimoPico_dinamica = [vetor_ultimoPico_dinamica ultimoPico];
+        %Atividade Estatica
+        elseif (tipo == "SIT") || (tipo == "STAND") || (tipo == "LAY")
+            vetor_picosMax_transicao = [vetor_picosMax_transicao picoMaximo];
+            vetor_primeiroPico_transicao = [vetor_primeiroPico_transicao primeiroPico];
+            vetor_ultimoPico_transicao = [vetor_ultimoPico_transicao ultimoPico];
+        %Atividade Transicao      
+        else
+            vetor_picosMax_estatica = [vetor_picosMax_estatica picoMaximo]; 
+            vetor_primeiroPico_estatica = [vetor_primeiroPico_estatica primeiroPico];
+            vetor_ultimoPico_estatica = [vetor_ultimoPico_estatica ultimoPico];
+        end
+             
 %     % ======================================================================
 
          anterior=fim;
          
     end
     hold off
-    
-    %Plot do 4.3
-%     if (strcmp(nome,'acc-exp01-user01.txt ACC-X')==1 || strcmp(nome,'acc-exp01-user01.txt ACC-Y')==1 || strcmp(nome,'acc-exp01-user01.txt ACC-Z')==1)
-%         figure(14)
-%         plot3(X,Y,Z)
-%         figure(15)
-%         plot3(X,Y,Z)
-%         figure(16)
-%         plot3(X,Y,Z)
-%     end
         
     %Media do numero de passos da atividade W
     sum_numero_passos_w=0;
