@@ -63,10 +63,6 @@ function [media_passos_w, media_passos_wu, media_passos_wd, desvio_padrao_w, des
         
 % =============================== Ponto4 ===============================
         discrete_fourier_transform = dFT(atividade_acc);
-%         if (strcmp(nome,'acc-exp01-user01.txt ACC-X'))==1
-%             x=sprintf('Atividade %s: %.2d (DFT). \n', tipo, discrete_fourier_transform);
-%             disp(x)
-%         end
         f=linspace(-25,25,numel(atividade_acc));
 
         if (strcmp(nome,'acc-exp01-user01.txt ACC-X')==1 || strcmp(nome,'acc-exp01-user01.txt ACC-Y')==1 || strcmp(nome,'acc-exp01-user01.txt ACC-Z')==1)
@@ -76,7 +72,7 @@ function [media_passos_w, media_passos_wu, media_passos_wd, desvio_padrao_w, des
                 f=f(ixp);
                 plot(f,abs(discrete_fourier_transform(ixp)));
                 x=sprintf('[%s] Atividade Tipo: %s', nome, tipo);
-                title(x,'FontSize',7)
+                title(x,'FontSize',9)
                 atividades_dinamicas=atividades_dinamicas+3;
 
             elseif (tipo == "SIT") || (tipo == "STAND") || (tipo == "LAY")
@@ -85,7 +81,7 @@ function [media_passos_w, media_passos_wu, media_passos_wd, desvio_padrao_w, des
                 f=f(ixp);
                 plot(f,abs(discrete_fourier_transform(ixp)));
                 x=sprintf('[%s] Atividade Tipo: %s', nome, tipo);
-                title(x,'FontSize',7)
+                title(x,'FontSize',9)
                 atividades_estaticas=atividades_estaticas+3;
             else
                 subplot(maior,3,atividades_transicao);
@@ -93,16 +89,20 @@ function [media_passos_w, media_passos_wu, media_passos_wd, desvio_padrao_w, des
                 f=f(ixp);
                 plot(f,abs(discrete_fourier_transform(ixp)));
                 x=sprintf('[%s] Atividade Tipo: %s', nome, tipo);
-                title(x,'FontSize',7)
+                title(x,'FontSize',9)
                 atividades_transicao=atividades_transicao+3;
             end
-%             x=sprintf('Atividade %s : %.1d (DFT)\n', tipo, discrete_fourier_transform);
-%             disp(x)
         end
        
 % ============================== Ponto4.1 ==============================
-        discrete_fourier_transform_janela = ponto4_1(atividade_acc, 13);
- 
+%         if (strcmp(nome,'acc-exp01-user01.txt ACC-X')==1 && strcmp(tipo,'W')==1)
+%             discrete_fourier_transform_janela = ponto4_1(atividade_acc, 15, 'ACC-X');
+%         elseif (strcmp(nome,'acc-exp01-user01.txt ACC-Y')==1 && strcmp(tipo,'W')==1)
+%             discrete_fourier_transform_janela = ponto4_1(atividade_acc, 16, 'ACC-Y');
+%         elseif (strcmp(nome,'acc-exp01-user01.txt ACC-Z')==1 && strcmp(tipo,'W')==1)
+%             discrete_fourier_transform_janela = ponto4_1(atividade_acc, 17, 'ACC-Z');
+%         end
+        
 % ============================== Ponto4.2 ==============================
        if (tipo == "W")
             numero_medio_passos=ponto4_2(discrete_fourier_transform, atividade_acc);
@@ -138,13 +138,13 @@ function [media_passos_w, media_passos_wu, media_passos_wd, desvio_padrao_w, des
             vetor_ultimoPico_estatica = [vetor_ultimoPico_estatica ultimoPico];
         end
              
-%     % ======================================================================
+    % ======================================================================
 
          anterior=fim;
          
     end
     hold off
-        
+    
     %Media do numero de passos da atividade W
     sum_numero_passos_w=0;
 
