@@ -64,6 +64,64 @@ l1=label(1);
 [media_passos_w_acc_y, media_passos_wu_acc_y, media_passos_wd_acc_y, desvio_padrao_w_acc_y, desvio_padrao_wu_acc_y, desvio_padrao_wd_acc_y] = analiseGrafica('acc-exp01-user01.txt ACC-Y', accY_l1, 12, l1);
 [media_passos_w_acc_z, media_passos_wu_acc_z, media_passos_wd_acc_z, desvio_padrao_w_acc_z, desvio_padrao_wu_acc_z, desvio_padrao_wd_acc_z] = analiseGrafica('acc-exp01-user01.txt ACC-Z', accZ_l1, 13, l1);
 
+
+%======================PICO MAXIMO===================
+[vetor_picosMax_dinamica_X1, vetor_picosMax_dinamica_Y, vetor_picosMax_dinamica_Z, vetor_picosMax_estatica_X1, vetor_picosMax_estatica_Y, vetor_picosMax_estatica_Z, vetor_picosMax_transicao_X1, vetor_picosMax_transicao_Y, vetor_picosMax_transicao_Z] = calcMax('acc-exp01-user01.txt ACC-X', accX_l1, 11, l1);
+[vetor_picosMax_dinamica_X, vetor_picosMax_dinamica_Y1, vetor_picosMax_dinamica_Z, vetor_picosMax_estatica_X, vetor_picosMax_estatica_Y1, vetor_picosMax_estatica_Z, vetor_picosMax_transicao_X, vetor_picosMax_transicao_Y1, vetor_picosMax_transicao_Z] = calcMax('acc-exp01-user01.txt ACC-Y', accY_l1, 12, l1);
+[vetor_picosMax_dinamica_X, vetor_picosMax_dinamica_Y, vetor_picosMax_dinamica_Z1, vetor_picosMax_estatica_X, vetor_picosMax_estatica_Y, vetor_picosMax_estatica_Z1, vetor_picosMax_transicao_X, vetor_picosMax_transicao_Y, vetor_picosMax_transicao_Z1] = calcMax('acc-exp01-user01.txt ACC-Z', accZ_l1, 13, l1);
+
+figure(14) 
+
+ponto4_3_graficos (vetor_picosMax_estatica_X1, vetor_picosMax_estatica_Y1, vetor_picosMax_estatica_Z1, vetor_picosMax_transicao_X1, vetor_picosMax_transicao_Y1, vetor_picosMax_transicao_Z1);
+legend('Estatica', 'Transicao')
+title ('Pico Maximo')
+view (3)
+
+figure(17)
+ponto4_4_graficos (vetor_picosMax_estatica_X1, vetor_picosMax_estatica_Y1, vetor_picosMax_estatica_Z1, vetor_picosMax_transicao_X1, vetor_picosMax_transicao_Y1, vetor_picosMax_transicao_Z1, vetor_picosMax_dinamica_X1, vetor_picosMax_dinamica_Y1, vetor_picosMax_dinamica_Z1);
+legend('Estatica', 'Transicao', 'Dinamica')
+title ('Pico Maximo')
+view (3)
+
+%======================PRIMEIRO PICO===================
+[vetor_primeiroPico_dinamica_X1, vetor_primeiroPico_dinamica_Y, vetor_primeiroPico_dinamica_Z, vetor_primeiroPico_estatica_X1, vetor_primeiroPico_estatica_Y, vetor_primeiroPico_estatica_Z, vetor_primeiroPico_transicao_X1, vetor_primeiroPico_transicao_Y, vetor_primeiroPico_transicao_Z] = calcFirst('acc-exp01-user01.txt ACC-X', accX_l1, 11, l1);
+[vetor_primeiroPico_dinamica_X, vetor_primeiroPico_dinamica_Y1, vetor_primeiroPico_dinamica_Z, vetor_primeiroPico_estatica_X, vetor_primeiroPico_estatica_Y1, vetor_primeiroPico_estatica_Z, vetor_primeiroPico_transicao_X, vetor_primeiroPico_transicao_Y1, vetor_primeiroPico_transicao_Z] = calcFirst('acc-exp01-user01.txt ACC-Y', accY_l1, 12, l1);
+[vetor_primeiroPico_dinamica_X, vetor_primeiroPico_dinamica_Y, vetor_primeiroPico_dinamica_Z1, vetor_primeiroPico_estatica_X, vetor_primeiroPico_estatica_Y, vetor_primeiroPico_estatica_Z1, vetor_primeiroPico_transicao_X, vetor_primeiroPico_transicao_Y, vetor_primeiroPico_transicao_Z1] = calcFirst('acc-exp01-user01.txt ACC-Z', accZ_l1, 13, l1);
+
+figure(15) 
+
+ponto4_3_graficos (vetor_primeiroPico_estatica_X1, vetor_primeiroPico_estatica_Y1, vetor_primeiroPico_estatica_Z1, vetor_primeiroPico_transicao_X1, vetor_primeiroPico_transicao_Y1, vetor_primeiroPico_transicao_Z1);
+legend('Estatica', 'Transicao')
+title ('Primeiro Pico')
+view (3)
+
+figure(18)
+ponto4_4_graficos (vetor_primeiroPico_estatica_X1, vetor_primeiroPico_estatica_Y1, vetor_primeiroPico_estatica_Z1, vetor_primeiroPico_transicao_X1, vetor_primeiroPico_transicao_Y1, vetor_primeiroPico_transicao_Z1, vetor_primeiroPico_dinamica_X1, vetor_primeiroPico_dinamica_Y1, vetor_primeiroPico_dinamica_Z1);
+legend('Estatica', 'Transicao', 'Dinamica')
+title ('Primeiro Pico')
+view (3)
+
+
+
+%======================ULTIMO PICO===================
+[vetor_ultimoPico_dinamica_X1, vetor_ultimoPico_dinamica_Y, vetor_ultimoPico_dinamica_Z, vetor_ultimoPico_estatica_X1, vetor_ultimoPico_estatica_Y, vetor_ultimoPico_estatica_Z, vetor_ultimoPico_transicao_X1, vetor_ultimoPico_transicao_Y, vetor_ultimoPico_transicao_Z] = calcLast('acc-exp01-user01.txt ACC-X', accX_l1, 11, l1);
+[vetor_ultimoPico_dinamica_X, vetor_ultimoPico_dinamica_Y1, vetor_ultimoPico_dinamica_Z, vetor_ultimoPico_estatica_X, vetor_ultimoPico_estatica_Y1, vetor_ultimoPico_estatica_Z, vetor_ultimoPico_transicao_X, vetor_ultimoPico_transicao_Y1, vetor_ultimoPico_transicao_Z] = calcLast('acc-exp01-user01.txt ACC-Y', accY_l1, 12, l1);
+[vetor_ultimoPico_dinamica_X, vetor_ultimoPico_dinamica_Y, vetor_ultimoPico_dinamica_Z1, vetor_ultimoPico_estatica_X, vetor_ultimoPico_estatica_Y, vetor_ultimoPico_estatica_Z1, vetor_ultimoPico_transicao_X, vetor_ultimoPico_transicao_Y, vetor_ultimoPico_transicao_Z1] = calcLast('acc-exp01-user01.txt ACC-Z', accZ_l1, 13, l1);
+
+figure(16) 
+ponto4_3_graficos (vetor_ultimoPico_estatica_X1, vetor_ultimoPico_estatica_Y1, vetor_ultimoPico_estatica_Z1, vetor_ultimoPico_transicao_X1, vetor_ultimoPico_transicao_Y1, vetor_ultimoPico_transicao_Z1);
+legend('Estatica', 'Transicao')
+title ('Ultimo Pico')
+view (3)
+
+figure(19) 
+ponto4_4_graficos (vetor_ultimoPico_estatica_X1, vetor_ultimoPico_estatica_Y1, vetor_ultimoPico_estatica_Z1, vetor_ultimoPico_transicao_X1, vetor_ultimoPico_transicao_Y1, vetor_ultimoPico_transicao_Z1, vetor_ultimoPico_dinamica_X1, vetor_ultimoPico_dinamica_Y1, vetor_ultimoPico_dinamica_Z1);
+legend('Estatica', 'Transicao', 'Dinamica')
+title ('Ultimo Pico')
+view (3)
+
+%==============================================================================================================================
+
 media_passos_w_x=media_passos_w_x+media_passos_w_acc_x;
 media_passos_w_y=media_passos_w_y+media_passos_w_acc_y;
 media_passos_w_z=media_passos_w_z+media_passos_w_acc_z;
@@ -100,12 +158,12 @@ vetor_desvio_padrao_wd_x=[vetor_desvio_padrao_wd_x; desvio_padrao_wd_acc_x];
 vetor_desvio_padrao_wd_y=[vetor_desvio_padrao_wd_y; desvio_padrao_wd_acc_y];
 vetor_desvio_padrao_wd_z=[vetor_desvio_padrao_wd_z; desvio_padrao_wd_acc_z];
 
-l2=label(2);
-[accX_l2, accY_l2, accZ_l2]=graficos('acc-exp02-user01.txt', B, 2, l2);
-[media_passos_w_acc_x, media_passos_wu_acc_x, media_passos_wd_acc_x, desvio_padrao_w_acc_x, desvio_padrao_wu_acc_x, desvio_padrao_wd_acc_x] = analiseGrafica('acc-exp02-user01.txt ACC-X', accX_l2, 14, l2);
-[media_passos_w_acc_y, media_passos_wu_acc_y, media_passos_wd_acc_y, desvio_padrao_w_acc_y, desvio_padrao_wu_acc_y, desvio_padrao_wd_acc_y] = analiseGrafica('acc-exp02-user01.txt ACC-Y', accY_l2, 15, l2);
-[media_passos_w_acc_z, media_passos_wu_acc_z, media_passos_wd_acc_z, desvio_padrao_w_acc_z, desvio_padrao_wu_acc_z, desvio_padrao_wd_acc_z] = analiseGrafica('acc-exp02-user01.txt ACC-Z', accZ_l2, 16, l2);
-
+  l2=label(2);
+ [accX_l2, accY_l2, accZ_l2]=graficos('acc-exp02-user01.txt', B, 2, l2);
+ [media_passos_w_acc_x, media_passos_wu_acc_x, media_passos_wd_acc_x, desvio_padrao_w_acc_x, desvio_padrao_wu_acc_x, desvio_padrao_wd_acc_x] = analiseGrafica('acc-exp02-user01.txt ACC-X', accX_l2, 14, l2);
+ [media_passos_w_acc_y, media_passos_wu_acc_y, media_passos_wd_acc_y, desvio_padrao_w_acc_y, desvio_padrao_wu_acc_y, desvio_padrao_wd_acc_y] = analiseGrafica('acc-exp02-user01.txt ACC-Y', accY_l2, 15, l2);
+ [media_passos_w_acc_z, media_passos_wu_acc_z, media_passos_wd_acc_z, desvio_padrao_w_acc_z, desvio_padrao_wu_acc_z, desvio_padrao_wd_acc_z] = analiseGrafica('acc-exp02-user01.txt ACC-Z', accZ_l2, 16, l2);
+ 
 media_passos_w_x=media_passos_w_x+media_passos_w_acc_x;
 media_passos_w_y=media_passos_w_y+media_passos_w_acc_y;
 media_passos_w_z=media_passos_w_z+media_passos_w_acc_z;
@@ -440,69 +498,69 @@ vetor_desvio_padrao_wd_z=[vetor_desvio_padrao_wd_z; desvio_padrao_wd_acc_z];
 
 l10=label (10);
 [accX_l10, accY_l10, accZ_l10]=graficos('acc-exp10-user05.txt', J, 10, l10);
-[media_passos_w_acc_x, media_passos_wu_acc_x, media_passos_wd_acc_x, desvio_padrao_w_acc_x, desvio_padrao_wu_acc_x, desvio_padrao_wd_acc_x] = analiseGrafica('acc-exp10-user05.txt ACC-X', accX_l10, 38, l10);
-[media_passos_w_acc_y, media_passos_wu_acc_y, media_passos_wd_acc_y, desvio_padrao_w_acc_y, desvio_padrao_wu_acc_y, desvio_padrao_wd_acc_y] = analiseGrafica('acc-exp10-user05.txt ACC-Y', accY_l10, 39, l10);
-[media_passos_w_acc_z, media_passos_wu_acc_z, media_passos_wd_acc_z, desvio_padrao_w_acc_z, desvio_padrao_wu_acc_z, desvio_padrao_wd_acc_z] = analiseGrafica('acc-exp10-user05.txt ACC-Z', accZ_l10, 40, l10);
+ [media_passos_w_acc_x, media_passos_wu_acc_x, media_passos_wd_acc_x, desvio_padrao_w_acc_x, desvio_padrao_wu_acc_x, desvio_padrao_wd_acc_x] = analiseGrafica('acc-exp10-user05.txt ACC-X', accX_l10, 38, l10);
+ [media_passos_w_acc_y, media_passos_wu_acc_y, media_passos_wd_acc_y, desvio_padrao_w_acc_y, desvio_padrao_wu_acc_y, desvio_padrao_wd_acc_y] = analiseGrafica('acc-exp10-user05.txt ACC-Y', accY_l10, 39, l10);
+ [media_passos_w_acc_z, media_passos_wu_acc_z, media_passos_wd_acc_z, desvio_padrao_w_acc_z, desvio_padrao_wu_acc_z, desvio_padrao_wd_acc_z] = analiseGrafica('acc-exp10-user05.txt ACC-Z', accZ_l10, 40, l10);
+ 
+ media_passos_w_x=media_passos_w_x+media_passos_w_acc_x;
+ media_passos_w_y=media_passos_w_y+media_passos_w_acc_y;
+ media_passos_w_z=media_passos_w_z+media_passos_w_acc_z;
+ 
+ media_passos_wu_x=media_passos_wu_x+media_passos_wu_acc_x;
+ media_passos_wu_y=media_passos_wu_y+media_passos_wu_acc_y;
+ media_passos_wu_z=media_passos_wu_z+media_passos_wu_acc_z;
+ 
+ media_passos_wd_x=media_passos_wd_x+media_passos_wd_acc_x;
+ media_passos_wd_y=media_passos_wd_y+media_passos_wd_acc_y;
+ media_passos_wd_z=media_passos_wd_z+media_passos_wd_acc_z;
+ 
+ vetor_media_passos_w_x=[vetor_media_passos_w_x; media_passos_w_acc_x];
+ vetor_media_passos_w_y=[vetor_media_passos_w_y; media_passos_w_acc_y];
+ vetor_media_passos_w_z=[vetor_media_passos_w_z; media_passos_w_acc_z];
+ 
+ vetor_media_passos_wu_x=[vetor_media_passos_wu_x; media_passos_wu_acc_x];
+ vetor_media_passos_wu_y=[vetor_media_passos_wu_y; media_passos_wu_acc_y];
+ vetor_media_passos_wu_z=[vetor_media_passos_wu_z; media_passos_wu_acc_z];
+ 
+ vetor_media_passos_wd_x=[vetor_media_passos_wd_x; media_passos_wd_acc_x];
+ vetor_media_passos_wd_y=[vetor_media_passos_wd_y; media_passos_wd_acc_y];
+ vetor_media_passos_wd_z=[vetor_media_passos_wd_z; media_passos_wd_acc_z];
+ 
+ vetor_desvio_padrao_w_x=[vetor_desvio_padrao_w_x; desvio_padrao_w_acc_x];
+ vetor_desvio_padrao_w_y=[vetor_desvio_padrao_w_y; desvio_padrao_w_acc_y];
+ vetor_desvio_padrao_w_z=[vetor_desvio_padrao_w_z; desvio_padrao_w_acc_z];
+ 
+ vetor_desvio_padrao_wu_x=[vetor_desvio_padrao_wu_x; desvio_padrao_wu_acc_x];
+ vetor_desvio_padrao_wu_y=[vetor_desvio_padrao_wu_y; desvio_padrao_wu_acc_y];
+ vetor_desvio_padrao_wu_z=[vetor_desvio_padrao_wu_z; desvio_padrao_wu_acc_z];
+ 
+ vetor_desvio_padrao_wd_x=[vetor_desvio_padrao_wd_x; desvio_padrao_wd_acc_x];
+ vetor_desvio_padrao_wd_y=[vetor_desvio_padrao_wd_y; desvio_padrao_wd_acc_y];
+ vetor_desvio_padrao_wd_z=[vetor_desvio_padrao_wd_z; desvio_padrao_wd_acc_z];
+ 
+ vetor_desvio_padrao_w_x=[vetor_desvio_padrao_w_x; 0];
+ vetor_desvio_padrao_w_y=[vetor_desvio_padrao_w_y; 0];
+ vetor_desvio_padrao_w_z=[vetor_desvio_padrao_w_z; 0];
 
-media_passos_w_x=media_passos_w_x+media_passos_w_acc_x;
-media_passos_w_y=media_passos_w_y+media_passos_w_acc_y;
-media_passos_w_z=media_passos_w_z+media_passos_w_acc_z;
-
-media_passos_wu_x=media_passos_wu_x+media_passos_wu_acc_x;
-media_passos_wu_y=media_passos_wu_y+media_passos_wu_acc_y;
-media_passos_wu_z=media_passos_wu_z+media_passos_wu_acc_z;
-
-media_passos_wd_x=media_passos_wd_x+media_passos_wd_acc_x;
-media_passos_wd_y=media_passos_wd_y+media_passos_wd_acc_y;
-media_passos_wd_z=media_passos_wd_z+media_passos_wd_acc_z;
-
-vetor_media_passos_w_x=[vetor_media_passos_w_x; media_passos_w_acc_x];
-vetor_media_passos_w_y=[vetor_media_passos_w_y; media_passos_w_acc_y];
-vetor_media_passos_w_z=[vetor_media_passos_w_z; media_passos_w_acc_z];
-
-vetor_media_passos_wu_x=[vetor_media_passos_wu_x; media_passos_wu_acc_x];
-vetor_media_passos_wu_y=[vetor_media_passos_wu_y; media_passos_wu_acc_y];
-vetor_media_passos_wu_z=[vetor_media_passos_wu_z; media_passos_wu_acc_z];
-
-vetor_media_passos_wd_x=[vetor_media_passos_wd_x; media_passos_wd_acc_x];
-vetor_media_passos_wd_y=[vetor_media_passos_wd_y; media_passos_wd_acc_y];
-vetor_media_passos_wd_z=[vetor_media_passos_wd_z; media_passos_wd_acc_z];
-
-vetor_desvio_padrao_w_x=[vetor_desvio_padrao_w_x; desvio_padrao_w_acc_x];
-vetor_desvio_padrao_w_y=[vetor_desvio_padrao_w_y; desvio_padrao_w_acc_y];
-vetor_desvio_padrao_w_z=[vetor_desvio_padrao_w_z; desvio_padrao_w_acc_z];
-
-vetor_desvio_padrao_wu_x=[vetor_desvio_padrao_wu_x; desvio_padrao_wu_acc_x];
-vetor_desvio_padrao_wu_y=[vetor_desvio_padrao_wu_y; desvio_padrao_wu_acc_y];
-vetor_desvio_padrao_wu_z=[vetor_desvio_padrao_wu_z; desvio_padrao_wu_acc_z];
-
-vetor_desvio_padrao_wd_x=[vetor_desvio_padrao_wd_x; desvio_padrao_wd_acc_x];
-vetor_desvio_padrao_wd_y=[vetor_desvio_padrao_wd_y; desvio_padrao_wd_acc_y];
-vetor_desvio_padrao_wd_z=[vetor_desvio_padrao_wd_z; desvio_padrao_wd_acc_z];
-
-vetor_desvio_padrao_w_x=[vetor_desvio_padrao_w_x; 0];
-vetor_desvio_padrao_w_y=[vetor_desvio_padrao_w_y; 0];
-vetor_desvio_padrao_w_z=[vetor_desvio_padrao_w_z; 0];
-
-vetor_desvio_padrao_wu_x=[vetor_desvio_padrao_wu_x; 0];
-vetor_desvio_padrao_wu_y=[vetor_desvio_padrao_wu_y; 0];
-vetor_desvio_padrao_wu_z=[vetor_desvio_padrao_wu_z; 0];
-
-vetor_desvio_padrao_wd_x=[vetor_desvio_padrao_wd_x; 0];
-vetor_desvio_padrao_wd_y=[vetor_desvio_padrao_wd_y; 0];
-vetor_desvio_padrao_wd_z=[vetor_desvio_padrao_wd_z; 0];
-
-vetor_media_passos_w_x=[vetor_media_passos_w_x; media_passos_w_x/10];
-vetor_media_passos_w_y=[vetor_media_passos_w_y; media_passos_w_y/10];
-vetor_media_passos_w_z=[vetor_media_passos_w_z; media_passos_w_z/10];
-
-vetor_media_passos_wu_x=[vetor_media_passos_wu_x; media_passos_wu_x/10];
-vetor_media_passos_wu_y=[vetor_media_passos_wu_y; media_passos_wu_y/10];
-vetor_media_passos_wu_z=[vetor_media_passos_wu_z; media_passos_wu_z/10];
-
-vetor_media_passos_wd_x=[vetor_media_passos_wd_x; media_passos_wd_x/10];
-vetor_media_passos_wd_y=[vetor_media_passos_wd_y; media_passos_wd_y/10];
-vetor_media_passos_wd_z=[vetor_media_passos_wd_z; media_passos_wd_z/10];
+ vetor_desvio_padrao_wu_x=[vetor_desvio_padrao_wu_x; 0];
+ vetor_desvio_padrao_wu_y=[vetor_desvio_padrao_wu_y; 0];
+ vetor_desvio_padrao_wu_z=[vetor_desvio_padrao_wu_z; 0];
+ 
+ vetor_desvio_padrao_wd_x=[vetor_desvio_padrao_wd_x; 0];
+ vetor_desvio_padrao_wd_y=[vetor_desvio_padrao_wd_y; 0];
+ vetor_desvio_padrao_wd_z=[vetor_desvio_padrao_wd_z; 0];
+ 
+ vetor_media_passos_w_x=[vetor_media_passos_w_x; media_passos_w_x/10];
+ vetor_media_passos_w_y=[vetor_media_passos_w_y; media_passos_w_y/10];
+ vetor_media_passos_w_z=[vetor_media_passos_w_z; media_passos_w_z/10];
+ 
+ vetor_media_passos_wu_x=[vetor_media_passos_wu_x; media_passos_wu_x/10];
+ vetor_media_passos_wu_y=[vetor_media_passos_wu_y; media_passos_wu_y/10];
+ vetor_media_passos_wu_z=[vetor_media_passos_wu_z; media_passos_wu_z/10];
+ 
+ vetor_media_passos_wd_x=[vetor_media_passos_wd_x; media_passos_wd_x/10];
+ vetor_media_passos_wd_y=[vetor_media_passos_wd_y; media_passos_wd_y/10];
+ vetor_media_passos_wd_z=[vetor_media_passos_wd_z; media_passos_wd_z/10];
 
 num = [1; 2; 3; 4; 5; 6; 7; 8; 9; 10; "MediaTotal(/min)"];
 

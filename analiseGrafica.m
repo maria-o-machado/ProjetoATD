@@ -120,7 +120,7 @@ function [media_passos_w, media_passos_wu, media_passos_wd, desvio_padrao_w, des
         end
 
 % ============================== Ponto4.3 ==============================
-        [picoMaximo, primeiroPico, ultimoPico] = ponto4_3(discrete_fourier_transform);
+        [picoMaximo, primeiroPico, ultimoPico] = calcPicos(discrete_fourier_transform);
         %Atividade Dinamica
         if (tipo == "W") || (tipo == "W-U") || (tipo == "W-D")
             vetor_picosMax_dinamica = [vetor_picosMax_dinamica picoMaximo];

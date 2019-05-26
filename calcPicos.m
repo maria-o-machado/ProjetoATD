@@ -1,4 +1,4 @@
-function [picoMaximo, primeiroPico, ultimoPico] = ponto4_3(atividade)
+function [picoMaximo, primeiroPico, ultimoPico] = calcPicos(atividade)
 
     f=linspace(-25,25,numel(atividade));
     ixp=find(f>=0);
