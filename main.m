@@ -198,6 +198,11 @@ hold off;
 
 %==============================================================================================================================
 
+%============================================Ponto 4.1 =========================================
+ponto4_1('acc-exp01-user01.txt ACC-X', accX_l1, l1)
+ponto4_1('acc-exp01-user01.txt ACC-Y', accX_l1, l1)
+ponto4_1('acc-exp01-user01.txt ACC-Z', accX_l1, l1)
+
 media_passos_w_x=media_passos_w_x+media_passos_w_acc_x;
 media_passos_w_y=media_passos_w_y+media_passos_w_acc_y;
 media_passos_w_z=media_passos_w_z+media_passos_w_acc_z;
@@ -234,11 +239,11 @@ vetor_desvio_padrao_wd_x=[vetor_desvio_padrao_wd_x; desvio_padrao_wd_acc_x];
 vetor_desvio_padrao_wd_y=[vetor_desvio_padrao_wd_y; desvio_padrao_wd_acc_y];
 vetor_desvio_padrao_wd_z=[vetor_desvio_padrao_wd_z; desvio_padrao_wd_acc_z];
 
-  l2=label(2);
- [accX_l2, accY_l2, accZ_l2]=graficos('acc-exp02-user01.txt', B, 2, l2);
- [media_passos_w_acc_x, media_passos_wu_acc_x, media_passos_wd_acc_x, desvio_padrao_w_acc_x, desvio_padrao_wu_acc_x, desvio_padrao_wd_acc_x] = analiseGrafica('acc-exp02-user01.txt ACC-X', accX_l2, 14, l2);
- [media_passos_w_acc_y, media_passos_wu_acc_y, media_passos_wd_acc_y, desvio_padrao_w_acc_y, desvio_padrao_wu_acc_y, desvio_padrao_wd_acc_y] = analiseGrafica('acc-exp02-user01.txt ACC-Y', accY_l2, 15, l2);
- [media_passos_w_acc_z, media_passos_wu_acc_z, media_passos_wd_acc_z, desvio_padrao_w_acc_z, desvio_padrao_wu_acc_z, desvio_padrao_wd_acc_z] = analiseGrafica('acc-exp02-user01.txt ACC-Z', accZ_l2, 16, l2);
+l2=label(2);
+[accX_l2, accY_l2, accZ_l2]=graficos('acc-exp02-user01.txt', B, 2, l2);
+[media_passos_w_acc_x, media_passos_wu_acc_x, media_passos_wd_acc_x, desvio_padrao_w_acc_x, desvio_padrao_wu_acc_x, desvio_padrao_wd_acc_x] = analiseGrafica('acc-exp02-user01.txt ACC-X', accX_l2, 14, l2);
+[media_passos_w_acc_y, media_passos_wu_acc_y, media_passos_wd_acc_y, desvio_padrao_w_acc_y, desvio_padrao_wu_acc_y, desvio_padrao_wd_acc_y] = analiseGrafica('acc-exp02-user01.txt ACC-Y', accY_l2, 15, l2);
+[media_passos_w_acc_z, media_passos_wu_acc_z, media_passos_wd_acc_z, desvio_padrao_w_acc_z, desvio_padrao_wu_acc_z, desvio_padrao_wd_acc_z] = analiseGrafica('acc-exp02-user01.txt ACC-Z', accZ_l2, 16, l2);
  
 media_passos_w_x=media_passos_w_x+media_passos_w_acc_x;
 media_passos_w_y=media_passos_w_y+media_passos_w_acc_y;

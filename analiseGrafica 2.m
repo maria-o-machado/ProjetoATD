@@ -68,22 +68,14 @@ function [media_passos_w, media_passos_wu, media_passos_wd, desvio_padrao_w, des
         if (strcmp(nome,'acc-exp01-user01.txt ACC-X')==1 || strcmp(nome,'acc-exp01-user01.txt ACC-Y')==1 || strcmp(nome,'acc-exp01-user01.txt ACC-Z')==1)
             if (tipo == "W") || (tipo == "W-U") || (tipo == "W-D")
                 subplot(maior,3,atividades_dinamicas);
-                subplot(maior,3,atividades_dinamicas);
                 ixp=find(f>=0);
                 f=f(ixp);
-                plot(f,abs(discrete_fourier_transform(ixp)));
-                x=sprintf('[%s] Atividade Tipo: %s', nome, tipo);
-                title(x,'FontSize',9)
                 plot(f,abs(discrete_fourier_transform(ixp)));
                 x=sprintf('[%s] Atividade Tipo: %s', nome, tipo);
                 title(x,'FontSize',9)
                 atividades_dinamicas=atividades_dinamicas+3;
 
             elseif (tipo == "SIT") || (tipo == "STAND") || (tipo == "LAY")
-                subplot(maior,3,atividades_estaticas);
-                ixp=find(f>=0);
-                f=f(ixp);
-                plot(f,abs(discrete_fourier_transform(ixp)));
                 subplot(maior,3,atividades_estaticas);
                 ixp=find(f>=0);
                 f=f(ixp);
@@ -98,16 +90,19 @@ function [media_passos_w, media_passos_wu, media_passos_wd, desvio_padrao_w, des
                 plot(f,abs(discrete_fourier_transform(ixp)));
                 x=sprintf('[%s] Atividade Tipo: %s', nome, tipo);
                 title(x,'FontSize',9)
-                subplot(maior,3,atividades_transicao);
-                ixp=find(f>=0);
-                f=f(ixp);
-                plot(f,abs(discrete_fourier_transform(ixp)));
-                x=sprintf('[%s] Atividade Tipo: %s', nome, tipo);
-                title(x,'FontSize',9)
                 atividades_transicao=atividades_transicao+3;
             end
         end
-               
+       
+% ============================== Ponto4.1 ==============================
+%         if (strcmp(nome,'acc-exp01-user01.txt ACC-X')==1 && strcmp(tipo,'W')==1)
+%             discrete_fourier_transform_janela = ponto4_1(atividade_acc, 15, 'ACC-X');
+%         elseif (strcmp(nome,'acc-exp01-user01.txt ACC-Y')==1 && strcmp(tipo,'W')==1)
+%             discrete_fourier_transform_janela = ponto4_1(atividade_acc, 16, 'ACC-Y');
+%         elseif (strcmp(nome,'acc-exp01-user01.txt ACC-Z')==1 && strcmp(tipo,'W')==1)
+%             discrete_fourier_transform_janela = ponto4_1(atividade_acc, 17, 'ACC-Z');
+%         end
+        
 % ============================== Ponto4.2 ==============================
        if (tipo == "W")
             numero_medio_passos=ponto4_2(discrete_fourier_transform, atividade_acc);
@@ -123,6 +118,27 @@ function [media_passos_w, media_passos_wu, media_passos_wd, desvio_padrao_w, des
             numero_medio_passos=ponto4_2(discrete_fourier_transform, atividade_acc);
             numero_passos_wd=[numero_passos_wd numero_medio_passos]; 
         end
+
+% ============================== Ponto4.3 ==============================
+        [picoMaximo, primeiroPico, ultimoPico] = calcPicos(discrete_fourier_transform);
+        %Atividade Dinamica
+        if (tipo == "W") || (tipo == "W-U") || (tipo == "W-D")
+            vetor_picosMax_dinamica = [vetor_picosMax_dinamica picoMaximo];
+            vetor_primeiroPico_dinamica = [vetor_primeiroPico_dinamica primeiroPico];
+            vetor_ultimoPico_dinamica = [vetor_ultimoPico_dinamica ultimoPico];
+        %Atividade Estatica
+        elseif (tipo == "SIT") || (tipo == "STAND") || (tipo == "LAY")
+            vetor_picosMax_transicao = [vetor_picosMax_transicao picoMaximo];
+            vetor_primeiroPico_transicao = [vetor_primeiroPico_transicao primeiroPico];
+            vetor_ultimoPico_transicao = [vetor_ultimoPico_transicao ultimoPico];
+        %Atividade Transicao      
+        else
+            vetor_picosMax_estatica = [vetor_picosMax_estatica picoMaximo]; 
+            vetor_primeiroPico_estatica = [vetor_primeiroPico_estatica primeiroPico];
+            vetor_ultimoPico_estatica = [vetor_ultimoPico_estatica ultimoPico];
+        end
+             
+    % ======================================================================
 
          anterior=fim;
          
