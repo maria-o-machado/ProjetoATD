@@ -172,7 +172,7 @@ function [media_passos_w, media_passos_wu, media_passos_wd, desvio_padrao_w, des
     media_passos_w=sum_numero_passos_w./length(numero_passos_w);
     
 % ======================= MEDIA E DESVIO PADRAO WU ======================= 
-    desvio_padrao_wu=std(numero_passos_w);
+    desvio_padrao_wu=std(numero_passos_wu);
     
     media_passos_wu=sum_numero_passos_wu./length(numero_passos_wu);
 
