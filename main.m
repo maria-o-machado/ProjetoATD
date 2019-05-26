@@ -83,6 +83,17 @@ legend('Estatica', 'Transicao', 'Dinamica')
 title ('Pico Maximo')
 view (3)
 
+[vetor_picosMax_W_X1, vetor_picosMax_W_Y, vetor_picosMax_W_Z, vetor_picosMax_WU_X1, vetor_picosMax_WU_Y, vetor_picosMax_WU_Z, vetor_picosMax_WD_X1, vetor_picosMax_WD_Y, vetor_picosMax_WD_Z] = ponto4_5_max ('acc-exp01-user01.txt ACC-X', accX_l1, 11, l1);
+[vetor_picosMax_W_X, vetor_picosMax_W_Y1, vetor_picosMax_W_Z, vetor_picosMax_WU_X, vetor_picosMax_WU_Y1, vetor_picosMax_WU_Z, vetor_picosMax_WD_X, vetor_picosMax_WD_Y1, vetor_picosMax_WD_Z] = ponto4_5_max ('acc-exp01-user01.txt ACC-Y', accY_l1, 12, l1);
+[vetor_picosMax_W_X, vetor_picosMax_W_Y, vetor_picosMax_W_Z1, vetor_picosMax_WU_X, vetor_picosMax_WU_Y, vetor_picosMax_WU_Z1, vetor_picosMax_WD_X, vetor_picosMax_WD_Y, vetor_picosMax_WD_Z1] = ponto4_5_max ('acc-exp01-user01.txt ACC-Z', accZ_l1, 13, l1);
+
+
+figure(20)
+ponto4_4_graficos (vetor_picosMax_W_X1, vetor_picosMax_W_Y1, vetor_picosMax_W_Z1, vetor_picosMax_WU_X1, vetor_picosMax_WU_Y1, vetor_picosMax_WU_Z1, vetor_picosMax_WD_X1, vetor_picosMax_WD_Y1, vetor_picosMax_WD_Z1);
+legend('Walking', 'Walking-UP', 'Walking-DOWN')
+title ('Pico Maximo')
+view (3)
+
 %======================PRIMEIRO PICO===================
 [vetor_primeiroPico_dinamica_X1, vetor_primeiroPico_dinamica_Y, vetor_primeiroPico_dinamica_Z, vetor_primeiroPico_estatica_X1, vetor_primeiroPico_estatica_Y, vetor_primeiroPico_estatica_Z, vetor_primeiroPico_transicao_X1, vetor_primeiroPico_transicao_Y, vetor_primeiroPico_transicao_Z] = calcFirst('acc-exp01-user01.txt ACC-X', accX_l1, 11, l1);
 [vetor_primeiroPico_dinamica_X, vetor_primeiroPico_dinamica_Y1, vetor_primeiroPico_dinamica_Z, vetor_primeiroPico_estatica_X, vetor_primeiroPico_estatica_Y1, vetor_primeiroPico_estatica_Z, vetor_primeiroPico_transicao_X, vetor_primeiroPico_transicao_Y1, vetor_primeiroPico_transicao_Z] = calcFirst('acc-exp01-user01.txt ACC-Y', accY_l1, 12, l1);
