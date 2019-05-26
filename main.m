@@ -64,7 +64,6 @@ l1=label(1);
 [media_passos_w_acc_y, media_passos_wu_acc_y, media_passos_wd_acc_y, desvio_padrao_w_acc_y, desvio_padrao_wu_acc_y, desvio_padrao_wd_acc_y] = analiseGrafica('acc-exp01-user01.txt ACC-Y', accY_l1, 12, l1);
 [media_passos_w_acc_z, media_passos_wu_acc_z, media_passos_wd_acc_z, desvio_padrao_w_acc_z, desvio_padrao_wu_acc_z, desvio_padrao_wd_acc_z] = analiseGrafica('acc-exp01-user01.txt ACC-Z', accZ_l1, 13, l1);
 
-
 %======================PICO MAXIMO===================
 [vetor_picosMax_dinamica_X1, vetor_picosMax_dinamica_Y, vetor_picosMax_dinamica_Z, vetor_picosMax_estatica_X1, vetor_picosMax_estatica_Y, vetor_picosMax_estatica_Z, vetor_picosMax_transicao_X1, vetor_picosMax_transicao_Y, vetor_picosMax_transicao_Z] = calcMax('acc-exp01-user01.txt ACC-X', accX_l1, 11, l1);
 [vetor_picosMax_dinamica_X, vetor_picosMax_dinamica_Y1, vetor_picosMax_dinamica_Z, vetor_picosMax_estatica_X, vetor_picosMax_estatica_Y1, vetor_picosMax_estatica_Z, vetor_picosMax_transicao_X, vetor_picosMax_transicao_Y1, vetor_picosMax_transicao_Z] = calcMax('acc-exp01-user01.txt ACC-Y', accY_l1, 12, l1);
@@ -78,7 +77,7 @@ title ('Pico Maximo')
 view (3)
 
 figure(17)
-ponto4_4_graficos (vetor_picosMax_estatica_X1, vetor_picosMax_estatica_Y1, vetor_picosMax_estatica_Z1, vetor_picosMax_transicao_X1, vetor_picosMax_transicao_Y1, vetor_picosMax_transicao_Z1, vetor_picosMax_dinamica_X1, vetor_picosMax_dinamica_Y1, vetor_picosMax_dinamica_Z1);
+ponto4_graficos (vetor_picosMax_estatica_X1, vetor_picosMax_estatica_Y1, vetor_picosMax_estatica_Z1, vetor_picosMax_transicao_X1, vetor_picosMax_transicao_Y1, vetor_picosMax_transicao_Z1, vetor_picosMax_dinamica_X1, vetor_picosMax_dinamica_Y1, vetor_picosMax_dinamica_Z1);
 legend('Estatica', 'Transicao', 'Dinamica')
 title ('Pico Maximo')
 view (3)
@@ -89,7 +88,7 @@ view (3)
 
 
 figure(20)
-ponto4_4_graficos (vetor_picosMax_W_X1, vetor_picosMax_W_Y1, vetor_picosMax_W_Z1, vetor_picosMax_WU_X1, vetor_picosMax_WU_Y1, vetor_picosMax_WU_Z1, vetor_picosMax_WD_X1, vetor_picosMax_WD_Y1, vetor_picosMax_WD_Z1);
+ponto4_graficos (vetor_picosMax_W_X1, vetor_picosMax_W_Y1, vetor_picosMax_W_Z1, vetor_picosMax_WU_X1, vetor_picosMax_WU_Y1, vetor_picosMax_WU_Z1, vetor_picosMax_WD_X1, vetor_picosMax_WD_Y1, vetor_picosMax_WD_Z1);
 legend('Walking', 'Walking-UP', 'Walking-DOWN')
 title ('Pico Maximo')
 view (3)
@@ -107,7 +106,7 @@ title ('Primeiro Pico')
 view (3)
 
 figure(18)
-ponto4_4_graficos (vetor_primeiroPico_estatica_X1, vetor_primeiroPico_estatica_Y1, vetor_primeiroPico_estatica_Z1, vetor_primeiroPico_transicao_X1, vetor_primeiroPico_transicao_Y1, vetor_primeiroPico_transicao_Z1, vetor_primeiroPico_dinamica_X1, vetor_primeiroPico_dinamica_Y1, vetor_primeiroPico_dinamica_Z1);
+ponto4_graficos (vetor_primeiroPico_estatica_X1, vetor_primeiroPico_estatica_Y1, vetor_primeiroPico_estatica_Z1, vetor_primeiroPico_transicao_X1, vetor_primeiroPico_transicao_Y1, vetor_primeiroPico_transicao_Z1, vetor_primeiroPico_dinamica_X1, vetor_primeiroPico_dinamica_Y1, vetor_primeiroPico_dinamica_Z1);
 legend('Estatica', 'Transicao', 'Dinamica')
 title ('Primeiro Pico')
 view (3)
@@ -126,9 +125,21 @@ title ('Ultimo Pico')
 view (3)
 
 figure(19) 
-ponto4_4_graficos (vetor_ultimoPico_estatica_X1, vetor_ultimoPico_estatica_Y1, vetor_ultimoPico_estatica_Z1, vetor_ultimoPico_transicao_X1, vetor_ultimoPico_transicao_Y1, vetor_ultimoPico_transicao_Z1, vetor_ultimoPico_dinamica_X1, vetor_ultimoPico_dinamica_Y1, vetor_ultimoPico_dinamica_Z1);
+ponto4_graficos (vetor_ultimoPico_estatica_X1, vetor_ultimoPico_estatica_Y1, vetor_ultimoPico_estatica_Z1, vetor_ultimoPico_transicao_X1, vetor_ultimoPico_transicao_Y1, vetor_ultimoPico_transicao_Z1, vetor_ultimoPico_dinamica_X1, vetor_ultimoPico_dinamica_Y1, vetor_ultimoPico_dinamica_Z1);
 legend('Estatica', 'Transicao', 'Dinamica')
 title ('Ultimo Pico')
+view (3)
+
+%=================Frequencia Graficos ================
+
+[passos_w_acc_x, passos_wu_acc_x, passos_wd_acc_x] = ponto4_5_freq (accX_l1, l1);
+[passos_w_acc_y, passos_wu_acc_y, passos_wd_acc_y] = ponto4_5_freq (accY_l1, l1);
+[passos_w_acc_z, passos_wu_acc_z, passos_wd_acc_z] = ponto4_5_freq (accZ_l1, l1);
+
+figure (21)
+ponto4_graficos (passos_w_acc_x, passos_w_acc_y, passos_w_acc_z, passos_wu_acc_x, passos_wu_acc_y, passos_wu_acc_z, passos_wd_acc_x, passos_wd_acc_y, passos_wd_acc_z);
+legend ('Walking', 'Walking-UP', 'Walking-DOWN')
+title ('Frequencia')
 view (3)
 
 %==============================================================================================================================
