@@ -200,8 +200,9 @@ hold off;
 
 %============================================Ponto 4.1 =========================================
 ponto4_1('acc-exp01-user01.txt ACC-X', accX_l1, l1)
-ponto4_1('acc-exp01-user01.txt ACC-Y', accX_l1, l1)
-ponto4_1('acc-exp01-user01.txt ACC-Z', accX_l1, l1)
+ponto4_1('acc-exp01-user01.txt ACC-Y', accY_l1, l1)
+ponto4_1('acc-exp01-user01.txt ACC-Z', accZ_l1, l1)
+
 
 media_passos_w_x=media_passos_w_x+media_passos_w_acc_x;
 media_passos_w_y=media_passos_w_y+media_passos_w_acc_y;
