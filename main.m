@@ -69,47 +69,81 @@ l1=label(1);
 [vetor_picosMax_dinamica_Y, vetor_picosMax_estatica_Y, vetor_picosMax_transicao_Y] = calcMax('acc-exp01-user01.txt ACC-Y', accY_l1, 12, l1);
 [vetor_picosMax_dinamica_Z, vetor_picosMax_estatica_Z, vetor_picosMax_transicao_Z] = calcMax('acc-exp01-user01.txt ACC-Z', accZ_l1, 13, l1);
 
-figure(14) 
+
+figure(14)
+subplot(2,2,1);
+hold on
 
 ponto4_3_graficos (vetor_picosMax_estatica_X, vetor_picosMax_estatica_Y, vetor_picosMax_estatica_Z, vetor_picosMax_transicao_X, vetor_picosMax_transicao_Y, vetor_picosMax_transicao_Z);
 legend('Estatica', 'Transicao')
+xlabel ('X')
+ylabel ('Y')
+zlabel ('Z')
 title ('Pico Maximo')
 view (3)
+hold off
 
-figure(17)
+figure(15)
+subplot(2,2,1);
+hold on
+
 ponto4_graficos (vetor_picosMax_estatica_X, vetor_picosMax_estatica_Y, vetor_picosMax_estatica_Z, vetor_picosMax_transicao_X, vetor_picosMax_transicao_Y, vetor_picosMax_transicao_Z, vetor_picosMax_dinamica_X, vetor_picosMax_dinamica_Y, vetor_picosMax_dinamica_Z);
 legend('Estatica', 'Transicao', 'Dinamica')
+xlabel ('X')
+ylabel ('Y')
+zlabel ('Z')
 title ('Pico Maximo')
 view (3)
+hold off;
 
 [vetor_picosMax_W_X, vetor_picosMax_WU_X, vetor_picosMax_WD_X] = ponto4_5_max ('acc-exp01-user01.txt ACC-X', accX_l1, 11, l1);
 [vetor_picosMax_W_Y, vetor_picosMax_WU_Y, vetor_picosMax_WD_Y] = ponto4_5_max ('acc-exp01-user01.txt ACC-Y', accY_l1, 12, l1);
 [vetor_picosMax_W_Z, vetor_picosMax_WU_Z, vetor_picosMax_WD_Z] = ponto4_5_max ('acc-exp01-user01.txt ACC-Z', accZ_l1, 13, l1);
 
 
-figure(20)
+figure(16)
+subplot(2,1,1);
+hold on
+
 ponto4_graficos (vetor_picosMax_W_X, vetor_picosMax_W_Y, vetor_picosMax_W_Z, vetor_picosMax_WU_X, vetor_picosMax_WU_Y, vetor_picosMax_WU_Z, vetor_picosMax_WD_X, vetor_picosMax_WD_Y, vetor_picosMax_WD_Z);
 legend('Walking', 'Walking-UP', 'Walking-DOWN')
+xlabel ('X')
+ylabel ('Y')
+zlabel ('Z')
 title ('Pico Maximo')
 view (3)
+hold off;
 
 %======================PRIMEIRO PICO===================
 [vetor_primeiroPico_dinamica_X, vetor_primeiroPico_estatica_X, vetor_primeiroPico_transicao_X] = calcFirst('acc-exp01-user01.txt ACC-X', accX_l1, 11, l1);
 [vetor_primeiroPico_dinamica_Y, vetor_primeiroPico_estatica_Y, vetor_primeiroPico_transicao_Y] = calcFirst('acc-exp01-user01.txt ACC-Y', accY_l1, 12, l1);
 [vetor_primeiroPico_dinamica_Z, vetor_primeiroPico_estatica_Z, vetor_primeiroPico_transicao_Z] = calcFirst('acc-exp01-user01.txt ACC-Z', accZ_l1, 13, l1);
 
-figure(15) 
+figure(14)
+subplot(2,2,2);
+hold on
 
 ponto4_3_graficos (vetor_primeiroPico_estatica_X, vetor_primeiroPico_estatica_Y, vetor_primeiroPico_estatica_Z, vetor_primeiroPico_transicao_X, vetor_primeiroPico_transicao_Y, vetor_primeiroPico_transicao_Z);
 legend('Estatica', 'Transicao')
+xlabel ('X')
+ylabel ('Y')
+zlabel ('Z')
 title ('Primeiro Pico')
 view (3)
 
-figure(18)
+hold off;
+
+figure(15)
+subplot(2,2,2);
+hold on
 ponto4_graficos (vetor_primeiroPico_estatica_X, vetor_primeiroPico_estatica_Y, vetor_primeiroPico_estatica_Z, vetor_primeiroPico_transicao_X, vetor_primeiroPico_transicao_Y, vetor_primeiroPico_transicao_Z, vetor_primeiroPico_dinamica_X, vetor_primeiroPico_dinamica_Y, vetor_primeiroPico_dinamica_Z);
 legend('Estatica', 'Transicao', 'Dinamica')
+xlabel ('X')
+ylabel ('Y')
+zlabel ('Z')
 title ('Primeiro Pico')
 view (3)
+hold off;
 
 
 
@@ -118,17 +152,31 @@ view (3)
 [vetor_ultimoPico_dinamica_Y, vetor_ultimoPico_estatica_Y, vetor_ultimoPico_transicao_Y] = calcLast('acc-exp01-user01.txt ACC-Y', accY_l1, 12, l1);
 [vetor_ultimoPico_dinamica_Z, vetor_ultimoPico_estatica_Z, vetor_ultimoPico_transicao_Z] = calcLast('acc-exp01-user01.txt ACC-Z', accZ_l1, 13, l1);
 
-figure(16) 
+figure(14)
+subplot(2,2,3);
+hold on
+ 
 ponto4_3_graficos (vetor_ultimoPico_estatica_X, vetor_ultimoPico_estatica_Y, vetor_ultimoPico_estatica_Z, vetor_ultimoPico_transicao_X, vetor_ultimoPico_transicao_Y, vetor_ultimoPico_transicao_Z);
 legend('Estatica', 'Transicao')
+xlabel ('X')
+ylabel ('Y')
+zlabel ('Z')
 title ('Ultimo Pico')
 view (3)
+hold off;
 
-figure(19) 
+figure(15)
+subplot(2,2,3);
+hold on
+
 ponto4_graficos (vetor_ultimoPico_estatica_X, vetor_ultimoPico_estatica_Y, vetor_ultimoPico_estatica_Z, vetor_ultimoPico_transicao_X, vetor_ultimoPico_transicao_Y, vetor_ultimoPico_transicao_Z, vetor_ultimoPico_dinamica_X, vetor_ultimoPico_dinamica_Y, vetor_ultimoPico_dinamica_Z);
 legend('Estatica', 'Transicao', 'Dinamica')
+xlabel ('X')
+ylabel ('Y')
+zlabel ('Z')
 title ('Ultimo Pico')
 view (3)
+hold off;
 
 %=================Frequencia Graficos ================
 
@@ -136,11 +184,17 @@ view (3)
 [passos_w_acc_y, passos_wu_acc_y, passos_wd_acc_y] = ponto4_5_freq (accY_l1, l1);
 [passos_w_acc_z, passos_wu_acc_z, passos_wd_acc_z] = ponto4_5_freq (accZ_l1, l1);
 
-figure (21)
+figure(16)
+subplot(2,1,2);
+hold on
 ponto4_graficos (passos_w_acc_x, passos_w_acc_y, passos_w_acc_z, passos_wu_acc_x, passos_wu_acc_y, passos_wu_acc_z, passos_wd_acc_x, passos_wd_acc_y, passos_wd_acc_z);
 legend ('Walking', 'Walking-UP', 'Walking-DOWN')
-title ('Frequencia')
+xlabel ('X')
+ylabel ('Y')
+zlabel ('Z')
+title ('Frequência')
 view (3)
+hold off;
 
 %==============================================================================================================================
 
