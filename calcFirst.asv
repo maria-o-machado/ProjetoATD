@@ -66,13 +66,13 @@ function [vetor_primeiroPico_dinamica, vetor_primeiroPico_estatica, vetor_primei
         %Atividade Transicao      
         else
             if (strcmp(nome,'acc-exp01-user01.txt ACC-X')==1)
-                vetor_primeiroPico_transicao = [vetor_primeiroPico_transicao primeiroPico];
+                vetor_primeiroPico_transicao = [vetor_primeiroPico_estatica_X primeiroPico];
                 
             elseif (strcmp(nome,'acc-exp01-user01.txt ACC-Y')==1)
-                vetor_primeiroPico_transicao = [vetor_primeiroPico_transicao primeiroPico];
+                vetor_primeiroPico_transicao = [vetor_primeiroPico_estatica_Y primeiroPico];
                 
             elseif (strcmp(nome,'acc-exp01-user01.txt ACC-Z')==1)
-                vetor_primeiroPico_transicao = [vetor_primeiroPico_transicao primeiroPico];
+                vetor_primeiroPico_transicao = [vetor_primeiroPico_estatica_Z primeiroPico];
             end
                 
         end

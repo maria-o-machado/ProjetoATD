@@ -1,17 +1,9 @@
-function [vetor_picosMax_W_X, vetor_picosMax_W_Y, vetor_picosMax_W_Z, vetor_picosMax_WU_X, vetor_picosMax_WU_Y, vetor_picosMax_WU_Z, vetor_picosMax_WD_X, vetor_picosMax_WD_Y, vetor_picosMax_WD_Z]=ponto4_5_max(nome, data, fig, matriz_atividade)
+function [vetor_picosMax_W, vetor_picosMax_WU, vetor_picosMax_WD] = ponto4_5_max(nome, data, fig, matriz_atividade)
     
     %=========PICO MAXIMO=========
-    vetor_picosMax_W_X = [];
-    vetor_picosMax_W_Y = [];
-    vetor_picosMax_W_Z = [];
-    
-    vetor_picosMax_WU_X = [];
-    vetor_picosMax_WU_Y = [];
-    vetor_picosMax_WU_Z = [];
-    
-    vetor_picosMax_WD_X = [];
-    vetor_picosMax_WD_Y = [];
-    vetor_picosMax_WD_Z = [];
+    vetor_picosMax_W = [];
+    vetor_picosMax_WU = [];
+    vetor_picosMax_WD = [];
     
     %===============================
     
@@ -45,29 +37,29 @@ function [vetor_picosMax_W_X, vetor_picosMax_W_Y, vetor_picosMax_W_Z, vetor_pico
         %Atividade Dinamica
         if (strcmp(nome,'acc-exp01-user01.txt ACC-X')==1)
              if (tipo == "W")
-                 vetor_picosMax_W_X = [vetor_picosMax_W_X picoMaximo];
+                 vetor_picosMax_W = [vetor_picosMax_W picoMaximo];
              elseif (tipo == "W-U")
-                 vetor_picosMax_WU_X = [vetor_picosMax_WU_X picoMaximo];
+                 vetor_picosMax_WU = [vetor_picosMax_WU picoMaximo];
              elseif (tipo == "W-D")
-                 vetor_picosMax_WD_X = [vetor_picosMax_WD_X picoMaximo];
+                 vetor_picosMax_WD = [vetor_picosMax_WD picoMaximo];
              end
             
         elseif (strcmp(nome,'acc-exp01-user01.txt ACC-Y')==1)
             if (tipo == "W")
-                 vetor_picosMax_W_Y = [vetor_picosMax_W_Y picoMaximo];
+                 vetor_picosMax_W = [vetor_picosMax_W picoMaximo];
              elseif (tipo == "W-U")
-                 vetor_picosMax_WU_Y = [vetor_picosMax_WU_Y picoMaximo];
+                 vetor_picosMax_WU = [vetor_picosMax_WU picoMaximo];
              elseif (tipo == "W-D")
-                 vetor_picosMax_WD_Y = [vetor_picosMax_WD_Y picoMaximo];
+                 vetor_picosMax_WD = [vetor_picosMax_WD picoMaximo];
              end
             
         elseif (strcmp(nome,'acc-exp01-user01.txt ACC-Z')==1)
             if (tipo == "W")
-                 vetor_picosMax_W_Z = [vetor_picosMax_W_Z picoMaximo];
+                 vetor_picosMax_W = [vetor_picosMax_W picoMaximo];
              elseif (tipo == "W-U")
-                 vetor_picosMax_WU_Z = [vetor_picosMax_WU_Z picoMaximo];
+                 vetor_picosMax_WU = [vetor_picosMax_WU picoMaximo];
              elseif (tipo == "W-D")
-                 vetor_picosMax_WD_Z = [vetor_picosMax_WD_Z picoMaximo];
+                 vetor_picosMax_WD = [vetor_picosMax_WD picoMaximo];
              end
             
         end       

@@ -1,17 +1,11 @@
-function [vetor_picosMax_dinamica_X, vetor_picosMax_dinamica_Y, vetor_picosMax_dinamica_Z, vetor_picosMax_estatica_X, vetor_picosMax_estatica_Y, vetor_picosMax_estatica_Z, vetor_picosMax_transicao_X, vetor_picosMax_transicao_Y, vetor_picosMax_transicao_Z]=calcMax(nome, data, fig, matriz_atividade)
+function [vetor_picosMax_dinamica, vetor_picosMax_estatica, vetor_picosMax_transicao]=calcMax(nome, data, fig, matriz_atividade)
     
     %=========PICO MAXIMO=========
-    vetor_picosMax_dinamica_X = [];
-    vetor_picosMax_dinamica_Y = [];
-    vetor_picosMax_dinamica_Z = [];
+    vetor_picosMax_dinamica = [];
     
-    vetor_picosMax_estatica_X = [];
-    vetor_picosMax_estatica_Y = [];
-    vetor_picosMax_estatica_Z = [];
+    vetor_picosMax_estatica = [];
     
-    vetor_picosMax_transicao_X = [];
-    vetor_picosMax_transicao_Y = [];
-    vetor_picosMax_transicao_Z = [];
+    vetor_picosMax_transicao= [];
     
     %===============================
     
@@ -45,39 +39,39 @@ function [vetor_picosMax_dinamica_X, vetor_picosMax_dinamica_Y, vetor_picosMax_d
         %Atividade Dinamica
         if (tipo == "W") || (tipo == "W-U") || (tipo == "W-D")
             if (strcmp(nome,'acc-exp01-user01.txt ACC-X')==1)
-                vetor_picosMax_dinamica_X = [vetor_picosMax_dinamica_X picoMaximo];
+                vetor_picosMax_dinamica = [vetor_picosMax_dinamica picoMaximo];
                 
             elseif (strcmp(nome,'acc-exp01-user01.txt ACC-Y')==1)
-                    vetor_picosMax_dinamica_Y = [vetor_picosMax_dinamica_Y picoMaximo];   
+                    vetor_picosMax_dinamica = [vetor_picosMax_dinamica picoMaximo];   
 
             elseif (strcmp(nome,'acc-exp01-user01.txt ACC-Z')==1)
-                    vetor_picosMax_dinamica_Z = [vetor_picosMax_dinamica_Z picoMaximo];
+                    vetor_picosMax_dinamica = [vetor_picosMax_dinamica picoMaximo];
             end                
             
         %Atividade Estatica
         elseif (tipo == "SIT") || (tipo == "STAND") || (tipo == "LAY")
             
             if (strcmp(nome,'acc-exp01-user01.txt ACC-X')==1)
-                vetor_picosMax_transicao_X = [vetor_picosMax_transicao_X picoMaximo];
+                vetor_picosMax_estatica = [vetor_picosMax_estatica picoMaximo];
                 
             elseif (strcmp(nome,'acc-exp01-user01.txt ACC-Y')==1)
-                vetor_picosMax_transicao_Y = [vetor_picosMax_transicao_Y picoMaximo];
+                vetor_picosMax_estatica = [vetor_picosMax_estatica picoMaximo];
                 
             elseif (strcmp(nome,'acc-exp01-user01.txt ACC-Z')==1)
-                vetor_picosMax_transicao_Z = [vetor_picosMax_transicao_Z picoMaximo];
+                vetor_picosMax_estatica = [vetor_picosMax_estatica picoMaximo];
             end
                 
                 
         %Atividade Transicao      
         else
             if (strcmp(nome,'acc-exp01-user01.txt ACC-X')==1)
-                vetor_picosMax_estatica_X = [vetor_picosMax_estatica_X picoMaximo]; 
+                vetor_picosMax_transicao = [vetor_picosMax_transicao picoMaximo]; 
                 
             elseif (strcmp(nome,'acc-exp01-user01.txt ACC-Y')==1)
-                vetor_picosMax_estatica_Y = [vetor_picosMax_estatica_Y picoMaximo]; 
+                vetor_picosMax_transicao = [vetor_picosMax_transicao picoMaximo]; 
                 
             elseif (strcmp(nome,'acc-exp01-user01.txt ACC-Z')==1)
-                vetor_picosMax_estatica_Z = [vetor_picosMax_estatica_Z picoMaximo]; 
+                vetor_picosMax_transicao = [vetor_picosMax_transicao picoMaximo]; 
             end
                 
         end

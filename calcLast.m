@@ -1,18 +1,12 @@
-function [vetor_ultimoPico_dinamica_X, vetor_ultimoPico_dinamica_Y, vetor_ultimoPico_dinamica_Z, vetor_ultimoPico_estatica_X, vetor_ultimoPico_estatica_Y, vetor_ultimoPico_estatica_Z, vetor_ultimoPico_transicao_X, vetor_ultimoPico_transicao_Y, vetor_ultimoPico_transicao_Z]=calcLast(nome, data, fig, matriz_atividade)
+function [vetor_ultimoPico_dinamica, vetor_ultimoPico_estatica, vetor_ultimoPico_transicao]=calcLast(nome, data, fig, matriz_atividade)
         
     %=========ULTIMO PICO=========
     
-    vetor_ultimoPico_dinamica_X = [];
-    vetor_ultimoPico_dinamica_Y = [];
-    vetor_ultimoPico_dinamica_Z = [];
+    vetor_ultimoPico_dinamica = [];
     
-    vetor_ultimoPico_estatica_X = [];
-    vetor_ultimoPico_estatica_Y = [];
-    vetor_ultimoPico_estatica_Z = [];
+    vetor_ultimoPico_estatica = [];
     
-    vetor_ultimoPico_transicao_X = [];
-    vetor_ultimoPico_transicao_Y = [];
-    vetor_ultimoPico_transicao_Z = [];
+    vetor_ultimoPico_transicao = [];
     
     %===============================
     
@@ -46,39 +40,39 @@ function [vetor_ultimoPico_dinamica_X, vetor_ultimoPico_dinamica_Y, vetor_ultimo
         %Atividade Dinamica
         if (tipo == "W") || (tipo == "W-U") || (tipo == "W-D")
             if (strcmp(nome,'acc-exp01-user01.txt ACC-X')==1)
-                vetor_ultimoPico_dinamica_X = [vetor_ultimoPico_dinamica_X ultimoPico];
+                vetor_ultimoPico_dinamica = [vetor_ultimoPico_dinamica ultimoPico];
                 
             elseif (strcmp(nome,'acc-exp01-user01.txt ACC-Y')==1)
-                    vetor_ultimoPico_dinamica_Y = [vetor_ultimoPico_dinamica_Y ultimoPico];
+                    vetor_ultimoPico_dinamica = [vetor_ultimoPico_dinamica ultimoPico];
 
             elseif (strcmp(nome,'acc-exp01-user01.txt ACC-Z')==1)
-                    vetor_ultimoPico_dinamica_Z = [vetor_ultimoPico_dinamica_Z ultimoPico];
+                    vetor_ultimoPico_dinamica = [vetor_ultimoPico_dinamica ultimoPico];
             end                
             
         %Atividade Estatica
         elseif (tipo == "SIT") || (tipo == "STAND") || (tipo == "LAY")
             
             if (strcmp(nome,'acc-exp01-user01.txt ACC-X')==1)
-                vetor_ultimoPico_transicao_X = [vetor_ultimoPico_transicao_X ultimoPico];
+                vetor_ultimoPico_estatica = [vetor_ultimoPico_estatica ultimoPico];
                 
             elseif (strcmp(nome,'acc-exp01-user01.txt ACC-Y')==1)
-                vetor_ultimoPico_transicao_Y = [vetor_ultimoPico_transicao_Y ultimoPico];
+                vetor_ultimoPico_estatica = [vetor_ultimoPico_estatica ultimoPico];
                 
             elseif (strcmp(nome,'acc-exp01-user01.txt ACC-Z')==1)
-                vetor_ultimoPico_transicao_Z = [vetor_ultimoPico_transicao_Z ultimoPico];
+                vetor_ultimoPico_estatica = [vetor_ultimoPico_estatica ultimoPico];
             end
                 
                 
         %Atividade Transicao      
         else
             if (strcmp(nome,'acc-exp01-user01.txt ACC-X')==1)
-                vetor_ultimoPico_estatica_X = [vetor_ultimoPico_estatica_X ultimoPico];
+                vetor_ultimoPico_transicao = [vetor_ultimoPico_transicao ultimoPico];
                 
             elseif (strcmp(nome,'acc-exp01-user01.txt ACC-Y')==1)
-                vetor_ultimoPico_estatica_Y = [vetor_ultimoPico_estatica_Y ultimoPico];
+                vetor_ultimoPico_transicao = [vetor_ultimoPico_transicao ultimoPico];
                 
             elseif (strcmp(nome,'acc-exp01-user01.txt ACC-Z')==1)
-                vetor_ultimoPico_estatica_Z = [vetor_ultimoPico_estatica_Z ultimoPico];
+                vetor_ultimoPico_transicao = [vetor_ultimoPico_transicao ultimoPico];
             end
                 
         end
